@@ -1,0 +1,40 @@
+name: Deploy website template
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Build website
+        run: |
+          echo "Replace this step with project-specific build command"
+
+      - name: Generate release marker
+        run: |
+          mkdir -p release
+          cat > release/release.json <<EOF
+          {
+            "commit": "${GITHUB_SHA}",
+            "run": "${GITHUB_RUN_ID}",
+            "time": "$(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          }
+          EOF
+
+      - name: Deploy placeholder
+        run: |
+          echo "Replace with cloud deployment command"
+
+      - name: Verify release
+        run: |
+          echo "Verify public website release marker"
