@@ -1,0 +1,29 @@
+project:
+  name: Wang Lab Website
+  institution: Fudan University
+  purpose:
+    - academic profile
+    - research communication
+    - team recruitment
+
+source:
+  provider: github
+  repository: zimwang-glitch/zimengwang-lab-site
+  branch: main
+
+framework:
+  name: Next.js
+
+deployment:
+  provider: Alibaba Cloud OSS
+  production_target: zimengwang-lab-site-prod-2026
+
+domain:
+  canonical: www.zimengwang.org.cn
+  redirects:
+    - zimengwang.org.cn
+
+legacy:
+  enabled: true
+  domains:
+    - old.zimengwang.org.cn
