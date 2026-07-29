@@ -1,0 +1,26 @@
+name: Website Health Check
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 8 * * 1"
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check website availability
+        run: |
+          echo "Checking website availability"
+          # Replace with project-specific URL
+          curl --fail --silent --show-error https://example.com > /dev/null
+
+      - name: Report status
+        run: |
+          echo "Health check completed"
+          echo "Add project-specific checks here:"
+          echo "- HTTPS"
+          echo "- DNS"
+          echo "- Deployment version"
+          echo "- Critical pages"
