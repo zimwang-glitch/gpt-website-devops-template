@@ -1,0 +1,30 @@
+name: Rollback website deployment
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_commit:
+        description: Git commit to restore
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  rollback:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout target version
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.target_commit }}
+
+      - name: Restore deployment
+        run: |
+          echo "Deploy selected rollback version"
+          echo "Target commit: ${{ inputs.target_commit }}"
+
+      - name: Verify rollback
+        run: |
+          echo "Verify restored public release"
