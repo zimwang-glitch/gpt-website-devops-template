@@ -1,0 +1,30 @@
+project:
+  name: ""
+  institution: ""
+  purpose: []
+
+source:
+  provider: github
+  repository: ""
+  branch: main
+
+framework:
+  name: ""
+
+deployment:
+  provider: ""
+  production_target: ""
+
+domain:
+  canonical: ""
+  redirects: []
+
+legacy:
+  enabled: false
+  domains: []
+
+content:
+  news:
+    source: ""
+  publications:
+    source: ""
